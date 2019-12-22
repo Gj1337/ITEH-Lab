@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+                    <form id="form" name="search">
+                            <input type="text" name="key" placeholder="Интервал времени"></input>
+                            <input type="button" name="print" value="Печать" />
+                        </form>
+
+
+            <script>
+
+            function AddRow()
+            {
+                var Table = document.getElementById("MyTable");
+          
+                for (var j=0;j<2;j++)
+                {
+                    var Row = document.createElement('tr');
+            
+                        for(var i=0;i<5;i++)
+                        {
+                            var Col = document.createElement('td');
+                            if(j%2==0)
+                                {
+                                    Col.style="background:MediumSpringGreen; font-family: 'Courier New', Courier, monospace;";
+                                }
+                            else
+                                {
+                                    Col.style="background:PaleGreen; font-family: 'Times New Roman', Times, serif;";
+                                }
+                        Col.appendChild(document.createTextNode(String.fromCharCode(parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100),parseInt(Math.random()*100))));
+                        Row.appendChild(Col);
+                        }
+                        Table.appendChild(Row);
+                 }
+            }    
+
+
+            function CheckInterval(){
+                
+                var keyBox = document.search.key;
+                var Elemnt = document.getElementById("form");
+                var val = keyBox.value;
+                //alert(typeof(val)+" "+val) ;                
+                var Interval=parseInt(val);
+                //alert(typeof(Interval)+" "+Interval) ;  
+
+                if(!(isNaN(Interval)))
+                {
+                alert("Строки будут генерироватся с интервалом "+Interval);
+                Elemnt.remove();
+                document.write("<table id=\"MyTable\" width=\"100%\" border=\"1\"> <th id=\"FirstRow\" colpasn=\"4\" style=\"color:grey; background:mintcream\; font-size:200%;\";   > Таблица  </th>  </table>");
+                var firstRow = document.getElementById("FirstRow");
+                setInterval(AddRow,Interval);
+                firstRow.setAttribute('colSpan', '5');
+                }
+                else
+                {
+                    alert("Не верно введены данные ");
+                }
+
+            }
+   
+            var printButton = document.search.print;
+            printButton.addEventListener("click", CheckInterval);
+            </script>
+</body>
+</html>
