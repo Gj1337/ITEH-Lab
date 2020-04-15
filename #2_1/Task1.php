@@ -29,12 +29,19 @@
             if(isset ($_POST['genre']))
             {
                 $genre=$_POST['genre'];
+
                 echo("<br><div align=\"center\">");
                 
-                $film=$dbh->query(" SELECT * FROM film 
-                                    inner join film_genre on(film.ID_FILM=film_genre.FID_Film)
-                                    INNER JOIN genre on (genre.ID_Genre=film_genre.FID_Genre)
-                                     WHERE genre.title=\"$genre\" ");
+                $sql=' SELECT * FROM film 
+                inner join film_genre on(film.ID_FILM=film_genre.FID_Film)
+                INNER JOIN genre on (genre.ID_Genre=film_genre.FID_Genre)
+                 WHERE genre.title=:genre  ';
+                 
+                $sth = $dbh->prepare ($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+    
+                $sth->execute(array(':genre'=>$genre));
+                $film=$sth->fetchAll();
+               
                 if(is_bool($film))
                 {
                     echo("Error");
