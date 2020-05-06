@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ИТех лаб_2_2</title>
+    <!-- Лабороторная работа Второй семестр-№2 КИУКИу-18-1 Глывич В.А-->
+</head>
+
+<script>
+
+    function viewOrNot(id)
+    {
+        var block = document.getElementById(id);
+        if(block!=undefined)
+        {
+            if((block.getAttribute('style').indexOf('display:none;')+1))
+            { block.setAttribute('style',block.getAttribute('style').replace('display:none;','display:block;'));}
+            else
+            {block.setAttribute('style',block.getAttribute('style').replace('display:block;','display:none;'));}
+        }
+    }
+</script>
+
+<body align="center" style="background: url(https://webfon.top/wp-content/uploads/2017/10/tools.png) left top repeat;margin: 2%;">
+                 
+            <h3> Вариант 4.</h3>
+            <p>  Создать и заполнить БД домашней фильмотеки - содержащей информацию про имеющиеся фильмы, сериалы, мультсериалы и т.д. Объекты фильмотеки описываются названием, годом выхода, <br>
+                типом носителя (видеокассета, CD, DVD, BR) и произвольным набором параметров, среди которых режиссер, актеры (может быть больше одного), жанр (может быть больше одного), страна выпуска и т.д.<br>
+                Предоставить пользователю возможность получения следующей информации:<br>
+            </p>
+        </div>
+        <br>
+            <a href="Task1.php" target="_blanc"> - что можно посмотреть на видеокассетах;</a><br>
+            <a href="Task2.php" target="_blanc"> - в каких фильмах участвовал выбранный актер;</a><br>
+            <a href="Task3.php" target="_blanc"> - то посмотреть из нового (вышедшее в этом году).</a><br>
+            
+
+        <br><br>
+       
+           
+
+</body>

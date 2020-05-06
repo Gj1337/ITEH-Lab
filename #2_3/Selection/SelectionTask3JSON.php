@@ -18,7 +18,6 @@
             $film=$dbh->query("SELECT * from film 
                                 WHERE film.theDate>=\"$startDate\" 
                                 and film.theDate<=\"$endDate\" ");
-
             if(is_bool($film))
             {echo("Error");}
             else
